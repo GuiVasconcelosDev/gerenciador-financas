@@ -1,8 +1,8 @@
-package br.com.guilhermedev.finacas.principal;
+package br.com.guilhermedev.financas.principal;
 
-import br.com.guilhermedev.finacas.model.TipoTransacao;
-import br.com.guilhermedev.finacas.model.Transacao;
-import br.com.guilhermedev.finacas.service.GerenciadorBanco;
+import br.com.guilhermedev.financas.model.TipoTransacao;
+import br.com.guilhermedev.financas.model.Transacao;
+import br.com.guilhermedev.financas.service.GerenciadorBanco;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -74,7 +74,7 @@ public class Principal {
                     System.out.println("--------------------------------------\n");
                 }
             } else if (opcao == 4) {
-                System.out.println("\n--- ANALISE ESTATÍSTICA AVANÇADA (STREAM) ---");
+                System.out.println("\n--- ANALISE ESTATÍSTICA AVANÇADA (STREAM) ---"); // o uso de stream para a filtragem de contagem, muito bom pae!
                 List<Transacao> lista = gerenciador.listarTransacoes();
 
                 if (lista.isEmpty()) {
@@ -105,6 +105,8 @@ public class Principal {
             } else {
                 System.out.println("Opção inválida! Tente novamente.");
             }
-        }
+
+            leitura.close();
+        } 
     }
 }

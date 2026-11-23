@@ -1,7 +1,7 @@
-package br.com.guilhermedev.finacas.service;
+package br.com.guilhermedev.financas.service;
 
-import br.com.guilhermedev.finacas.model.TipoTransacao;
-import br.com.guilhermedev.finacas.model.Transacao;
+import br.com.guilhermedev.financas.model.TipoTransacao;
+import br.com.guilhermedev.financas.model.Transacao;
 
 import java.io.*;
 import java.time.LocalDate;

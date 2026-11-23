@@ -1,4 +1,4 @@
-package br.com.guilhermedev.finacas.model;
+package br.com.guilhermedev.financas.model;
 
 import java.time.LocalDate;
 

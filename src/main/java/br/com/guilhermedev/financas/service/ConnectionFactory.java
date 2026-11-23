@@ -1,4 +1,4 @@
-package br.com.guilhermedev.finacas.service;
+package br.com.guilhermedev.financas.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class ConnectionFactory {
         try {
             String url = "jdbc:postgresql://localhost:5432/postgres";
             String user = "postgres";
-            String password = "admin123";
+            String password = "";
 
             return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
