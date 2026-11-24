@@ -1,5 +1,5 @@
 data,descricao,tipo,valor
-2026-06-26,salario,RECEITA,5000.0
-2026-06-26,1500,DESPESA,1500.0
-2026-06-26,Movimentação de salario,RECEITA,5500.0
-2026-06-26,retirada,DESPESA,1500.0
+2026-11-24,Salario do Mês,RECEITA,1640.0
+2026-11-24,3000,00,RECEITA,3500.0
+2026-11-24,Dinheiro do DashCash,RECEITA,4320.5
+2026-11-24,Usar dinheiro para up,DESPESA,1500.0
