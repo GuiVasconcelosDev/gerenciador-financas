@@ -2,6 +2,7 @@ package br.com.guilhermedev.financas.principal;
 
 import br.com.guilhermedev.financas.model.TipoTransacao;
 import br.com.guilhermedev.financas.model.Transacao;
+import br.com.guilhermedev.financas.service.GerenciadorArquivo;
 import br.com.guilhermedev.financas.service.GerenciadorBanco;
 
 import java.time.LocalDate;
@@ -9,9 +10,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
-    static void main() {
-        Scanner leitura = new Scanner(System.in);
+    public static void main(String[] args) {
         GerenciadorBanco gerenciador = new GerenciadorBanco();
+        GerenciadorArquivo gerenciadorArquivo = new GerenciadorArquivo();
+        gerenciador.inicializarBanco();
+
+        Scanner leitura = new Scanner(System.in);
         int opcao = 0;
 
         String menu = """
@@ -22,11 +26,12 @@ public class Principal {
                 2) Adicionar Despesa (Saída)
                 3) Listar Transações e Saldo Geral
                 4) Resumo Estatístico Avançado (Streams)\s
-                5) Sair
+                5) Exportar CSV
+                6) Sair
                 =========================================
                \s""";
 
-        while (opcao != 5) {
+        while (opcao != 6) {
             System.out.println(menu);
             System.out.print("Escolha uma opção: ");
             opcao = leitura.nextInt();
@@ -101,12 +106,15 @@ public class Principal {
                     System.out.println("----------------------------------------------------\n");
                 }
             } else if (opcao == 5) {
+                gerenciadorArquivo.exportarTransacoes(gerenciador.listarTransacoes());
+            } else if (opcao == 6) {
                 System.out.println("Sistema encerrado. Cuide bem do seu dinheiro!");
             } else {
                 System.out.println("Opção inválida! Tente novamente.");
             }
 
-            leitura.close();
-        } 
+        }
+
+        leitura.close();
     }
 }

@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+
+    {
+      "type": "java",
+      "name": "Gerenciador de Finanças",
+      "request": "launch",
+      "mainClass": "br.com.guilhermedev.financas.principal.Principal",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

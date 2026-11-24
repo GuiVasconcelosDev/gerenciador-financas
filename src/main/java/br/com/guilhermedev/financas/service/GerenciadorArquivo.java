@@ -33,6 +33,24 @@ public class GerenciadorArquivo {
         }
     }
 
+    public void exportarTransacoes(List<Transacao> transacoes) {
+        File arquivo = new File(nomeArquivo);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, false))) {
+            writer.write("data,descricao,tipo,valor");
+            writer.newLine();
+
+            for (Transacao transacao : transacoes) {
+                writer.write(transacao.tomCSV());
+                writer.newLine();
+            }
+
+            System.out.println("CSV gerado com sucesso em: " + arquivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Erro ao gerar o arquivo CSV: " + e.getMessage());
+        }
+    }
+
     public List<Transacao> listarTransacoes() {
         List<Transacao> transacoes = new ArrayList<>();
         File arquivo = new File(nomeArquivo);

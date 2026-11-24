@@ -2,12 +2,15 @@
 
 Aplicação Java de terminal para registrar e consultar receitas e despesas. O projeto pratica orientação a objetos, JDBC, persistência em PostgreSQL e manipulação de arquivos CSV.
 
+> **Finalidade acadêmica:** este projeto é funcional e foi desenvolvido exclusivamente para estudos e fins acadêmicos. Não é destinado ao uso em produção nem à gestão de finanças reais.
+
 ## Funcionalidades
 
 - Cadastro de receitas e despesas
 - Listagem das movimentações financeiras
 - Persistência em PostgreSQL
 - Implementação alternativa de leitura e escrita em CSV
+- Exportação das transações do PostgreSQL para `financas.csv` pelo menu
 - Ordenação das transações por data
 - Menu interativo no terminal
 
@@ -21,6 +24,33 @@ Aplicação Java de terminal para registrar e consultar receitas e despesas. O p
 - CSV
 
 ## Banco de dados
+
+### Docker Compose
+
+Suba o PostgreSQL isolado deste projeto:
+
+```bash
+docker compose up -d postgres
+```
+
+As configurações locais ficam no arquivo `.env`. Use `.env.example` como referência e
+não versione o arquivo `.env`. Na primeira execução, crie o arquivo local e troque
+`change-me` por uma senha de desenvolvimento:
+
+```bash
+cp .env.example .env
+```
+
+Mantenha `POSTGRES_PASSWORD` e `DB_PASSWORD` com o mesmo valor.
+
+Em seguida, exporte as variáveis para executar a aplicação Java:
+
+```bash
+set -a
+. ./.env
+set +a
+mvn compile exec:java -Dexec.mainClass=br.com.guilhermedev.financas.principal.Principal
+```
 
 Crie a tabela antes de executar:
 
